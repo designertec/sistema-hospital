@@ -9,7 +9,7 @@
 
  -Emissão: o médico pode solicitar exames e enviar os resultados deles para o paciente;<br>
 - Alteração de prontuário: o médico poderá alterar alguns dados do paciente, como o histórico de doenças e o peso do paciente.<br>
-<p align="center"><b>Diretor/Administrador</p></b><br>
+<p align="center"><b>Diretor/Administrador</b></p><br>
 -Cadastramento: ele efetua o cadastro dos funcionários, como médico, enfermeiros e técnicos de enfermagem.<br>
 -Relatórios: o diretor pode gerar um relatório geral com todas as informações do hospital.<br>
 Agenda: o administrador cadastrará os dias e horários do médico.<br><br>
