@@ -2,9 +2,10 @@
 <p><b>Paciente</b></p>
 -<b>RF001</b>:O paciente se cadastra no sistema informando os dados necessários;<br>
 -<b>RF002</b>: O sistema salvará e exibirá o prontuário do paciente, com todas as informações dele (consultas, exames, anamneses, etc);<br>
--<b>RF003</b>: o paciente poderá marcar consultas online, escolhendo a especialidade. A partir daí o sistema vê os médicos disponíveis e agenda o paciente para a hora e dia do médico disponível.<br>
+-<b>RF003</b>: O paciente poderá marcar consultas online, escolhendo a especialidade. A partir daí o sistema vê os médicos disponíveis e agenda o paciente para a hora e dia do médico disponível.<br>
 -<b>RF004</b>: O paciente poderá receber exames do laboratório e também seus resultados, dados pelo médico.<br>
--<b>RF005</b>:O sistema fornecerá um manual simples caso o cliente esteja com alguma dúvida.<br><br>
+-<b>RF005</b>:O sistema fornecerá um manual simples caso o cliente esteja com alguma dúvida.<br>
+-<b>RF006</b>: O paciente será avisado se houve alguma alteração no seu prontuário ou se recebeu algum exame.<br>
 
 <p><b>Médico</b></p>
 -<b>RF007</b>: o médico pode solicitar exames e enviar os resultados deles para o paciente;<br>
