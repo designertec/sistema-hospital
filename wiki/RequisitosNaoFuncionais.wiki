@@ -1,0 +1,9 @@
+<h2>Requisitos Não-Funcionais do Sistema</h2>
+
+-<b>RNF001</b>: o sistema salvará automaticamente a consulta. Se o paciente faltar a consulta, ela será marcada na cor vermelha. Caso contrário, será marcado na cor verde.<br>
+-<b>RNF002</b>: o médico verá todos dados do paciente. Dados pessoais serão mostrados na página inicial. Outras opções como histórico de consultas, doenças e exames estarão na parte direita, sendo acessadas quando clicadas.<br>
+-<b>RNF003</b>: O cliente, na página inicial verá as próximas consultas e exames que podem ser feitos, de maneira bem clara. Na parte esquerda estarão as opções do prontuário (histórico de consultas, doenças, exames) e outras que podem ser modificadas pelo usuário (configurações, senha). Todas devem ser mostradas de maneira não ambígua;<br>
+-<b>RNF004</b>: o sistema será rápido na hora de verificar as agendas dos médicos e dizer a hora e dia disponível para a marcação da consulta.
+Mesmo dependendo de vários fatores, temos o objetivo de concluir a busca em, no máximo, 5 segundos;<br>
+-<b>RNF005</b>: Qualquer mudança no cadastro será avisada. Por exemplo, se o paciente teve uma alteração no seu histórico de doenças ou exames, ele será alertado na opção indicada (piscará na cor vermelha).<br>
+-<b>RNF006</b>: em tons de azul, com fundo branco e de maneira simples, será a tela de confirmação dos dados do usuário e sua entrada no sistema.<br>
