@@ -1,0 +1,35 @@
+<h2 align='center'><b>Requisitos</b></h2>
+<br><h2 align="center"><b>Requisitos Funcionais do Sistema</b></h2>
+
+<p><b>Paciente</b></p>
+
+-<b>RF001</b>:O paciente se cadastra no sistema informando os dados necessários;<br>
+-<b>RF002</b>: O sistema salvará e exibirá o prontuário do paciente, com todas as informações dele (consultas, exames, anamneses, etc);<br>
+-<b>RF003</b>: O paciente poderá marcar consultas online, escolhendo a especialidade. A partir daí o sistema vê os médicos disponíveis e agenda o paciente para a hora e dia do médico disponível.<br>
+-<b>RF004</b>: O paciente poderá receber exames do laboratório e também seus resultados, dados pelo médico.<br>
+-<b>RF005</b>:O sistema fornecerá um manual simples caso o cliente esteja com alguma dúvida.<br>
+-<b>RF006</b>: O paciente será avisado se houve alguma alteração no seu prontuário ou se recebeu algum exame.<br>
+
+<p><b>Médico</b></p>
+-<b>RF007</b>: o médico pode solicitar exames e enviar os resultados deles para o paciente;<br>
+-<b>RF008</b>: o médico poderá alterar alguns dados do paciente, como o histórico de doenças e o peso do paciente.<br>
+<p><b>Diretor/Administrador</b></p>
+
+-<b>RF009</b>: o diretor efetua o cadastro dos funcionários, como médico, enfermeiros e técnicos de enfermagem.<br>
+-<b>RF010</b>: o diretor pode gerar um relatório geral com todas as informações do hospital.<br>
+-<b>RF011</b>: o administrador cadastrará os dias e horários do médico.<br><br>
+
+<p><b>Laboratórios</b></p>
+-<b>RF012</b>: o laboratório,através do sistema, poderá enviar exames, tanto para o médico quanto para o paciente.<br>
+
+
+
+<br><br><h2>Requisitos Não-Funcionais do Sistema</h2><br>
+
+-<b>RNF001</b>: o sistema salvará automaticamente a consulta. Se o paciente faltar a consulta, ela será marcada na cor vermelha. Caso contrário, será marcado na cor verde.<br>
+-<b>RNF002</b>: o médico verá todos dados do paciente. Dados pessoais serão mostrados na página inicial. Outras opções como histórico de consultas, doenças e exames estarão na parte direita, sendo acessadas quando clicadas.<br>
+-<b>RNF003</b>: O cliente, na página inicial verá as próximas consultas e exames que podem ser feitos, de maneira bem clara. Na parte esquerda estarão as opções do prontuário (histórico de consultas, doenças, exames) e outras que podem ser modificadas pelo usuário (configurações, senha). Todas devem ser mostradas de maneira não ambígua;<br>
+-<b>RNF004</b>: o sistema será rápido na hora de verificar as agendas dos médicos e dizer a hora e dia disponível para a marcação da consulta.
+Mesmo dependendo de vários fatores, temos o objetivo de concluir a busca em, no máximo, 5 segundos;<br>
+-<b>RNF005</b>: Qualquer mudança no cadastro será avisada. Por exemplo, se o paciente teve uma alteração no seu histórico de doenças ou exames, ele será alertado na opção indicada (piscará na cor vermelha).<br>
+-<b>RNF006</b>: em tons de azul, com fundo branco e de maneira simples, será a tela de confirmação dos dados do usuário e sua entrada no sistema.<br>
