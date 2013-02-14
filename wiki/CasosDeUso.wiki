@@ -1,14 +1,32 @@
-#summary One-sentence summary of this page.
-#labels Featured
+<h1>Casos de Uso</h1>
 
-= Introduction =
+<h3>*UC001: Cadastrar Paciente*</h3><br>
+*Objetivo:* Cadastrar o paciente para que ele possa usar o sistema<br>
+*Descrição:* O paciente informa seus dados, endereço e faz o cadastro no sistema<br>
+*Ator:* Paciente<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Nenhuma<br>
+*Pós-Condição*: O usuário é cadastrado no sistema<br>
+*Cenários principais de sucesso:* A partir do cadastro, o usuário poderá acessar o sistema e já terá seu prontuário único.<br>
+*Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente.<br><br>
 
-Add your content here.
+<h3>*UC002: Cadastrar Médico*</h3><br>
+*Objetivo:* Cadastrar o médico para que ele possa usar o sistema<br>
+*Descrição:* O administrador cadastra o médico e sua agenda no sistema<br>
+*Ator:* Médico, Administrador<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* O médico estar cadastrado no CRM(!)<br>
+*Pós-Condição*: O médico é cadastrado no sistema<br>
+*Cenários principais de sucesso:* A partir do cadastro, o médico poderá acessar o sistema, fazer diagnósticos e alterar prontuários.<br>
+*Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente;<br>
+Caso o médico não tenha CRM, uma mensagem de erro é exibida;<br>
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+<h3>*UC003: Alterar Prontuário*</h3><br>
+*Objetivo:* Dar a oportunidade do médico mudar o prontuário<br>
+*Descrição:* O médico altera os dados do paciente a partir de exames feitos<br>
+*Ator:* Paciente, Médico<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Médico e Pacientes cadastrados no sistema<br>
+*Pós-Condição*: O prontuário é alterado<br>
+*Cenários principais de sucesso:* O médico poderá visualizar o novo prontuário, com todas as informações do paciente.<br>
+*Fluxos Alternativos:*....<br>
