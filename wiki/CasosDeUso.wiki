@@ -21,7 +21,24 @@
 *Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente;<br>
 Caso o médico não tenha CRM, uma mensagem de erro é exibida;<br>
 
-<h3>*UC003: Alterar Prontuário*</h3><br>
+<h3>*UC003: Fazer Login*</h3><br>
+*Objetivo:* Ter acesso ao sistema<br>
+*Descrição:* O usuário deve entrar com o CPF e senha.<br>
+*Ator:* Paciente, Médico, Administrador.<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Médico, Pacientes e Administrador cadastrados no sistema.<br>
+*Pós-Condição*: O usuário tem acesso ao sistema.<br>
+*Cenários principais de sucesso:* 
+
+1 Se o CPF e senha estiverem corretos, entrará no sistema.<br>
+ 1.1 *Paciente*, poderá alterar seus dados cadastrais e marcar consultas.
+ 1.2 *Medico*, poderá acrescentar informações ao prontuário.
+ 1.3 *Administrador*, poderá cadastrar/retirar médicos.
+*Fluxos Alternativos:*....<br>
+
+1 Caso o CPF e/ou senha estiver(em) incorretos, informar o erro na digitação e pedir para tentar novamente.
+
+<h3>*UC004: Alterar Prontuário*</h3><br>
 *Objetivo:* Dar a oportunidade do médico mudar o prontuário<br>
 *Descrição:* O médico altera os dados do paciente a partir de exames feitos<br>
 *Ator:* Paciente, Médico<br>
@@ -30,3 +47,17 @@ Caso o médico não tenha CRM, uma mensagem de erro é exibida;<br>
 *Pós-Condição*: O prontuário é alterado<br>
 *Cenários principais de sucesso:* O médico poderá visualizar o novo prontuário, com todas as informações do paciente.<br>
 *Fluxos Alternativos:*....<br>
+
+<h3>*UC005: Alterar dados cadastrais*</h3><br>
+*Objetivo:* Alterar a senha e endereço.<br>
+*Descrição:* O paciente altera a sua senha e/ou endereço.<br>
+*Ator:* Paciente<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Pacientes cadastrados no sistema<br>
+*Pós-Condição*: A senha e/ou endereço é(são) alterados.<br>
+*Cenários principais de sucesso:* 
+O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.<br>
+*Fluxos Alternativos:*
+
+1 Caso a senha atual seja inválida, informar que a senha foi digitada de forma errada.
+<br>
