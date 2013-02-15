@@ -80,12 +80,22 @@ O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.
 
 <h3>*UC007: Consultar Prontuário:*</h3><br>
 *Objetivo:*Consultar prontuário do paciente<br>
-*Descrição:* O administrador, médico ou paciente consulta o prontuário em tela ou imprime<br>
-*Ator:*Administrador, médico, paciente<br>
+*Descrição:* O médico ou paciente consulta o prontuário em tela<br>
+*Ator:* Médico, paciente<br>
 *Prioridade:* Alta<br>
 *Pré-Condição:* Pacientes com prontuários cadastrados no sistema<br>
-*Pós-Condição*: O prontuário é visualizado ou impresso com sucesso<br>
+*Pós-Condição*: O prontuário é visualizado com sucesso<br>
 *Cenários principais de sucesso:* 
-O administrador, médico ou paciente poderão visualizar ou imprimir o prontuário de forma rápida e intuitiva.<br>
+O médico ou paciente poderão visualizar o prontuário de forma rápida e intuitiva.<br>
 *Fluxos Alternativos:*
 
+<h3>*UC008: Imprimir Prontuário:*</h3><br>
+*Objetivo:*Imprimir o prontuário do paciente<br>
+*Descrição:* O médico ou paciente imprime o prontuário<br>
+*Ator:* Médico, paciente<br>
+*Prioridade:* Baixa<br>
+*Pré-Condição:* Pacientes com prontuários cadastrados no sistema<br>
+*Pós-Condição*: O prontuário é impresso com sucesso<br>
+*Cenários principais de sucesso:* 
+O médico ou paciente poderão imprimir o prontuário de forma rápida e intuitiva.<br>
+*Fluxos Alternativos:*
