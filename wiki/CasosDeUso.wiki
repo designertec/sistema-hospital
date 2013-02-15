@@ -61,3 +61,19 @@ O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.
 
 1 Caso a senha atual seja inválida, informar que a senha foi digitada de forma errada.
 <br>
+
+<h3>*UC006: Marcar consultas*</h3><br>
+*Objetivo:* Dar a oportunidade ao paciente marcar e desmarcar consultas.<br>
+*Descrição:* O paciente escolhe a especialidade da consulta e o sistema marca o dia. O paciente também pode cancelar uma consulta marcada(1 semana antes).<br>
+*Ator:* Paciente<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Médico e Pacientes cadastrados no sistema<br>
+*Pós-Condição*: A consulta é marcada ou desmarcada.<br>
+*Cenários principais de sucesso:* 
+
+ A consulta é marcada ou desmarcada.<br>
+
+*Fluxos Alternativos:*
+
+1 Caso o paciente marque uma consulta e não compareça no dia ele não poderá marcar consultas online durante 6 meses(prioridade baixa).
+<br>
