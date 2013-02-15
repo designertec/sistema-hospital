@@ -10,29 +10,29 @@
 *Cenários principais de sucesso:* A partir do cadastro, o usuário poderá acessar o sistema e já terá seu prontuário único.<br>
 *Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente.<br><br>
 
-<h3>*UC002: Cadastrar Médico*</h3><br>
+<h3>*UC002: Cadastrar Médico/Enfermeiro*</h3><br>
 *Objetivo:* Cadastrar o médico para que ele possa usar o sistema<br>
 *Descrição:* O administrador cadastra o médico e sua agenda no sistema<br>
 *Ator:* Médico, Administrador<br>
 *Prioridade:* Alta<br>
 *Pré-Condição:* O médico estar cadastrado no CRM(!)<br>
 *Pós-Condição*: O médico é cadastrado no sistema<br>
-*Cenários principais de sucesso:* A partir do cadastro, o médico poderá acessar o sistema, fazer diagnósticos e alterar prontuários.<br>
+*Cenários principais de sucesso:* A partir do cadastro, o médico/Enfermeiro poderá acessar o sistema e alterar prontuários.<br>
 *Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente;<br>
 Caso o médico não tenha CRM, uma mensagem de erro é exibida;<br>
 
 <h3>*UC003: Fazer Login*</h3><br>
 *Objetivo:* Ter acesso ao sistema<br>
 *Descrição:* O usuário deve entrar com o CPF e senha.<br>
-*Ator:* Paciente, Médico, Administrador.<br>
+*Ator:* Paciente, Médico/Enfermeiro, Administrador.<br>
 *Prioridade:* Alta<br>
-*Pré-Condição:* Médico, Pacientes e Administrador cadastrados no sistema.<br>
+*Pré-Condição:* Médico/Enfermeiro, Pacientes e Administrador cadastrados no sistema.<br>
 *Pós-Condição*: O usuário tem acesso ao sistema.<br>
 *Cenários principais de sucesso:* 
 
 1 Se o CPF e senha estiverem corretos, entrará no sistema.<br>
  1.1 *Paciente*, poderá alterar seus dados cadastrais e marcar consultas.
- 1.2 *Medico*, poderá acrescentar informações ao prontuário.
+ 1.2 *Medico/Enfermeiro*, poderá acrescentar informações ao prontuário.
  1.3 *Administrador*, poderá cadastrar/retirar médicos.
 *Fluxos Alternativos:*....<br>
 
