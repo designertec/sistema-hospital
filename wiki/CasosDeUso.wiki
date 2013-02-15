@@ -77,3 +77,15 @@ O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.
 
 1 Caso o paciente marque uma consulta e não compareça no dia ele não poderá marcar consultas online durante 6 meses(prioridade baixa).
 <br>
+
+<h3>*UC007: Consultar Prontuário:*</h3><br>
+*Objetivo:*Consultar prontuário do paciente<br>
+*Descrição:* O administrador, médico ou paciente consulta o prontuário em tela ou imprime<br>
+*Ator:*Administrador, médico, paciente<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* Pacientes com prontuários cadastrados no sistema<br>
+*Pós-Condição*: O prontuário é visualizado ou impresso com sucesso<br>
+*Cenários principais de sucesso:* 
+O administrador, médico ou paciente poderão visualizar ou imprimir o prontuário de forma rápida e intuitiva.<br>
+*Fluxos Alternativos:*
+
