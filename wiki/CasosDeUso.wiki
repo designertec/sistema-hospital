@@ -78,7 +78,7 @@ O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.
 1 Caso o paciente marque uma consulta e não compareça no dia ele não poderá marcar consultas online durante 6 meses(prioridade baixa).
 <br>
 
-<h3>*UC007: Consultar Prontuário:*</h3><br>
+<h3>*UC007: Consultar Prontuário*</h3><br>
 *Objetivo:*Consultar prontuário do paciente<br>
 *Descrição:* O médico ou paciente consulta o prontuário em tela<br>
 *Ator:* Médico, paciente<br>
@@ -89,7 +89,7 @@ O paciente poderá alterar o seu endereço e senha de forma rápida e intuitiva.
 O médico ou paciente poderão visualizar o prontuário de forma rápida e intuitiva.<br>
 *Fluxos Alternativos:*
 
-<h3>*UC008: Imprimir Prontuário:*</h3><br>
+<h3>*UC008: Imprimir Prontuário*</h3><br>
 *Objetivo:*Imprimir o prontuário do paciente<br>
 *Descrição:* O médico ou paciente imprime o prontuário<br>
 *Ator:* Médico, paciente<br>
