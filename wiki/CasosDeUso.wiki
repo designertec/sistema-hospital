@@ -109,6 +109,17 @@ O médico ou enfermeiro poderá criar o prontuário de forma rápida e intuitiva
  Caso o paciente não esteja cadastrado, informar: paciente não cadastrado(erro005)
 
 
+<h3>*UC010: Cadastrar ADM*</h3><br>
+*Objetivo:* Cadastrar o ADM para que ele possa administrar o sistema<br>
+*Descrição:* O administrador cadastra outro administrador<br>
+*Ator:* Administrador<br>
+*Prioridade:* Alta<br>
+*Pré-Condição:* <br>
+*Pós-Condição*: O ADM é cadastrado no sistema<br>
+*Cenários principais de sucesso:* A partir do cadastro, o ADM poderá acessar o sistema e cadastrar novos funcionários..<br>
+*Fluxos Alternativos:*
+
+
 
 
 
@@ -118,3 +129,4 @@ O médico ou enfermeiro poderá criar o prontuário de forma rápida e intuitiva
 <b>*erro003:*</b>  "Senha incorreta."<br>
 <b>*erro004:*</b>  "Prontuário não encontrado."<br>
 <b>*erro005:*</b>  "Paciente não cadastrado."<br>
+<b>*erro006:*</b>  "Usuário já cadastrado!"<br>
