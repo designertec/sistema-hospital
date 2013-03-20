@@ -10,7 +10,7 @@
 *Cenários principais de sucesso:* A partir do cadastro, o usuário poderá acessar o sistema e já terá seu prontuário único.<br>
 *Fluxos Alternativos:*Se o número de caracteres for inválido, o sistema exibirá uma mensagem de erro e irá pedir para que o usuário digite novamente(erro001).<br><br>
 
-<h3>*UC002: Cadastrar Médico/Enfermeiro*</h3><br>
+<h3>*UC002: Cadastrar Médico*</h3><br>
 *Objetivo:* Cadastrar o médico/Enfermeiro para que ele possa usar o sistema<br>
 *Descrição:* O administrador cadastra o médico e sua agenda no sistema<br>
 *Ator:* Médico, Administrador<br>
