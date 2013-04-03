@@ -5,27 +5,30 @@
 	</title>
 </head>
 <body>
-	<h1>
 	<p align="center"><b>Paciente - Marcacao</b></p>
-	<hr>
+	<h1>
+	<br>
 	<br>
 	</h1>
-	<h2>
 	<p align="center">
-		<b>Informe a <i>Especialidade</i> do Medico e a <i>Data da consulta</i>, para marcaçao.</b>
+		<b>Informe a <i>Especialidade</i> do Medico e a <i>Data da consulta</i>, para marcaÃ§ao.</b>
 		<br>
-		<form method="post" action="TelaDoPacienteMarcacao.php">
+		<form method="POST" action="TelaDoPacienteMarcacao.php">
 			Especialidade:* <input type="text" name="especialidadeInformada" maxlength="20">
 			<br>
 			Data Desejada para Consulta:* <input type="date" name="dataInformada">
+			<br>
+			Seu CPF:* <input type="text" name="cpfPaciente" maxlength="14">
 			<br>
 			<input type="submit" value="Solicitar Consulta">
 			<br>
 		</form>
 		<?php
+			 require_once  'BD.php';
+		
 			/*
 			 *nessa tela vamos consultar no 
-			 *banco de dados, se temos um médico
+			 *banco de dados, se temos um mÃ©dico
 			 *com a especialidade informada,
 			 *depois verificar se ele tem 
 			 *disponibilidade para aquela data e
@@ -34,17 +37,17 @@
 			 */
 		
 			/*
-			 *esta query será 
+			 *esta query serÃ¡ 
 			 *usada para consultar 
 			 *no banco se existe um 
-			 *médico com a especilidade 
+			 *mÃ©dico com a especilidade 
 			 *informada 
 			 */
 			$query1= "";
 			
 			
 			/*
-			 *essa variável receberá
+			 *essa variÃ¡vel receberÃ¡
 			 *o resultado da consulta 
 			 *realizada pela $query1 
 			 */
@@ -52,15 +55,15 @@
 			
 			
 			/*
-			 *esta variável vai receber 
-			 *o número de linhas do resultado 
+			 *esta variÃ¡vel vai receber 
+			 *o nÃºmero de linhas do resultado 
 			 *da constulta feita por $query1 
 			 */
 			$numRows1= (int) 0;
 			
 			
 			/*
-			 *esta query será 
+			 *esta query serÃ¡ 
 			 *usada para consultar 
 			 *os medicos da especialidade 
 			 *informada com disponibilidade
@@ -70,7 +73,7 @@
 			
 			
 			/*
-			 *esta variável vai receber 
+			 *esta variÃ¡vel vai receber 
 			 *o resultado da constula 
 			 *realizada pela $query2 
 			 */
@@ -78,8 +81,8 @@
 			
 			
 		   /*
-			*esta variável vai receber
-			*o número de linhas do resultado
+			*esta variÃ¡vel vai receber
+			*o nÃºmero de linhas do resultado
 			*da constulta feita por $query2
 			*/
 			$numRows2= (int) 0;
@@ -96,16 +99,17 @@
 			
 			/*
 			 *pegamos os dados passados 
-			 *pelo usuário no formulário HTML
+			 *pelo usuÃ¡rio no formulÃ¡rio HTML
 			 */
 			$especialidadeInformada= $_POST["especialidadeInformada"];
 			$dataInformada= $_POST["dataInformada"];
+			$cpfPaciente= $_POST["cpfPaciente"];
 			
 			
 			/*
 			 *consultamos no banco 
 			 *de dados se existe um 
-			 *médico com tal especialidade 
+			 *mÃ©dico com tal especialidade 
 			 */
 			//construimos a $query1
 			$query1= TelaMarcacaoQueryEspecialidade." ".$especialidadeInformada;
@@ -117,22 +121,22 @@
 			 *verificamos quantas linhas 
 			 *foram afetadas com o resultado
 			 *do SELECT, se nenhuma linha foi 
-			 *afetada entao, não temos a especialidade, 
-			 *a especialidade informada não é válida
+			 *afetada entao, nÃ£o temos a especialidade, 
+			 *a especialidade informada nÃ£o Ã© vÃ¡lida
 			 */
 			$numRows1= mysql_num_rows($statusQuery1);
 			
-			if($numRows1 == 0)		//se não temos a especialidade redirecionamos para uma tela de erro
+			if($numRows1 == 0)		//se nÃ£o temos a especialidade redirecionamos para uma tela de erro
 			{
 				header("Location: NaoTemosEpecialidadeInformada.html");
 			}
-			else	//se temos a especialidade continuamos com a marcaçãao
+			else	//se temos a especialidade continuamos com a marcaÃ§Ã£ao
 				{
 						/*
-						 *temos que verificar se temos médicos 
-						 *disponíveis para a data solicitada 
+						 *temos que verificar se temos mÃ©dicos 
+						 *disponÃ­veis para a data solicitada 
 						 *para isso faremos uma nova consulta 
-						 *para listar todos os médicos com 
+						 *para listar todos os mÃ©dicos com 
 						 *disponibilidade para a data
 						 */
 						//construimos a $query2
@@ -145,28 +149,85 @@
 						*verificamos quantas linhas
 						*foram afetadas com o resultado
 						*do SELECT, se nenhuma linha foi
-						*afetada entao, não temos a disponibilidade,
-						*para marcação da especialidade e para a 
+						*afetada entao, nÃ£o temos a disponibilidade,
+						*para marcaÃ§Ã£o da especialidade e para a 
 						*data informada
 						*/
 						$numRows2= mysql_num_rows($statusQuery2);
 						
-						//se nenhuma linha foi retornada não temos dispinibilidadee de marcação
+						//se nenhuma linha foi retornada nÃ£o temos dispinibilidadee de marcaÃ§Ã£o
 						if($numRows2 == 0)
 						{
 							header("Location: NaoTemosDisponibilidadeDeMarcacao.html");
 						}
-						else	//se alguma linha foi retornada exibimos para o usuário os possíveis médicos
+						else	//se alguma linha foi retornada exibimos para o usuÃ¡rio os possÃ­veis mÃ©dicos
 							{
 								while($statusFetchArray = mysql_fetch_array($statusQuery2))
 								{
 									echo "Nome: ".$statusFetchArray["MEDICOS.NOME_MEDICO"]."     CRM: ".$statusFetchArray["MEDICOS.CRM"]."    Especialidade: ".$statusFetchArray["MEDICOS.ESPECIALIDADE"].".";
 								}
-							}
-						
+							}		
 				}
 			
 		?>
 	</p>
-	</h2>
+	<hr>
+		<form action="TelaDoPacienteMarcacao.php" method="POST">
+		Informe o CPF do medico da lista acima para realizar a marcacao: <input type="text" name="cpfMedico">
+		<br>
+		<p align="center"><input type="submit" value="Marcar Consulta"></p>
+		</form>
+		<?php
+			/*
+			 *aqui vamos realizar a marcaÃ§Ã£o
+			 *ou seja o cadastro nas tabelas
+			 *marcacao_consultas 
+			 */	
+		
+			//pegamos o cpf informado pelo paciente no formulÃ¡rio
+			$cpfInformado= $_POST["cpfMedcio"];
+			
+			//verificamos se estÃ¡ dentro da lista que foi exibida
+			while($statusFetchArray = mysql_fetch_array($query2))
+			{
+				//se o cpf informado estÃ¡ na lista
+				if($statusFetchArray["CPF_MEDICO"] == $cpfInformado)
+				{
+					//cadastramos e quebramos o loop
+					/*
+					 *esta query serÃ¡ usada
+					 *para cadastrarmos a consulta
+					 *na tabela marcacao_consultas 
+					 */
+					//construimos a query
+					$query3= TelaDeMarcacaoQueryCadastro.$cpfInformado.", ".$dataInformada.", ".$cpfPaciente.")";
+					
+					
+					/*
+					 *esta variÃ¡vel irÃ¡ guardar
+					 *o resultado do cadastro
+					 */
+					$statusQuery3= (int) 0;
+					
+					
+					//realizamos o cadastro
+					$statusQuery3= $bd1->ConectaConsultaFechaBd($query3);
+					
+					//verificamos se foi realizado com sucesso
+					if($statusQuery3 == 0)
+					{
+						header("Location: ErroAoCadastrar.html");
+					}
+					else
+					{
+						header("Location: MarcacaoRealizadaComSucesso.html");
+					}
+					
+					break;
+				}
+				
+			} 
+		
+		
+		?>
 </body>
