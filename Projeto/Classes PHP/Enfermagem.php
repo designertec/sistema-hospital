@@ -2,19 +2,14 @@
 	class Enfermagem extends Usuarios
 	{
 		//atributos
-		private $_nomeEnfermeira,$_cre,$_emailEnfermeira;
+		private $_nomeEnfermeira,$_cre,$_emailEnfermeira,$_cpf,$_telefone;
 		/*
 		 *esses atributos devem
 		 *ser tratados como strings 
 		 */
-		private $_documentosEnfermeira;
-		/*
-		 *deverá ser um objeto da 
-		 *classe Documentos 
-		 */
 		private $_enderecoEnfermeira;
 		/*
-		 *deverá ser um objeto da
+		 *deverÃ¡ ser um objeto da
 		 *classe Endereco
 		 */
 		
@@ -23,16 +18,15 @@
 		{
 			
 		}
-		public function Enfermagem($_nomeEnfermeira,$_cre,$_emailEnfermeira,$rg,$orgaoExpRg,$dataExpRg,$cpf,$nomeRua,$bairro,$numero,$complemento,$cep,$cidade,$uf,$pais)
-		{
-			$this->_nomeEnfermeira= $_nomeEnfermeira;
-			$this->_cre= $_cre;
-			$this->_emailEnfermeira= $_emailEnfermeira;
-			$this->_documentosEnfermeira= new Documentos((string) $rg,(string) $orgaoExpRg,(string) $dataExpRg,(string) $cpf);
-			$this->_enderecoEnfermeira= new Endereco((string) $nomeRua,(string) $bairro,(int) $numero,(string) $complemento,(string) $cep,(string) $cidade,(string) $uf,(string) $pais);
-		}
+		//public function Enfermagem($_nomeEnfermeira,$_cre,$_emailEnfermeira,$cpf)
+		//{
+			//$this->_cpf= $cpf;
+			//$this->_nomeEnfermeira= $_nomeEnfermeira;
+			//$this->_cre= $_cre;
+			//$this->_emailEnfermeira= $_emailEnfermeira;
+		//}
 		
-		//métodos
+		//mÃ©todos
 		
 		
 		//gets e sets
@@ -40,7 +34,7 @@
 		{
 			return $this->_nomeEnfermeira;
 		}
-		public function setNomeEnfermeira(string $_nomeEnfermeira)
+		public function setNomeEnfermeira($_nomeEnfermeira)
 		{
 			$this->_nomeEnfermeira= $_nomeEnfermeira;
 		}
@@ -49,7 +43,7 @@
 		{
 			return $this->_cre;
 		}
-		public function setCre(string $_cre)
+		public function setCre($_cre)
 		{
 			$this->_cre= $_cre;
 		}
@@ -58,9 +52,27 @@
 		{
 			return $this->_emailEnfermeira;
 		}
-		public function setEmailEnfermeira(string $_emailEnfermeira)
+		public function setEmailEnfermeira($_emailEnfermeira)
 		{
 			$this->_emailEnfermeira= $_emailEnfermeira;
+		}
+		
+		public function getCpf()
+		{
+			return $this->_cpf;
+		}
+		public function setCpf($cpf)
+		{
+			$this->_cpf= $cpf;
+		}
+		
+		public function getTelefone()
+		{
+			return $this->_telefone;
+		}
+		public function setTelefone($telefone)
+		{
+			$this->_telefone= $telefone;
 		}
 		
 	}
