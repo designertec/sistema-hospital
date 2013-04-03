@@ -11,7 +11,7 @@
 		private $_rg;
 		/*
 		 * o RG deve estar no formato:
-		 * 0.000.000, a quantidade dígitos
+		 * 0.000.000, a quantidade dÃ­gitos
 		 * pode variar
 		 */
 		
@@ -35,45 +35,45 @@
 			
 		}
 		
-		public function Documentos($rg,$orgaoExpRg,$dataExpRg,$cpf)
-		{
-			$this->_cpf= $cpf;
-			$this->_rg= $rg;
-			$this->_dataExpRg= $dataExpRg;
-			$this->_orgaoExpRg= $orgaoExpRg;
-		}
+		//public function Documentos($rg,$orgaoExpRg,$dataExpRg,$cpf)
+		//{
+			//$this->_cpf= $cpf;
+			//$this->_rg= $rg;
+			//$this->_dataExpRg= $dataExpRg;
+			//$this->_orgaoExpRg= $orgaoExpRg;
+		//}
 		
-		//métodos
+		//mÃ©todos
 		private function VerificaFormatoCpf()
 		{
 		   /*
-			* esse método vai verificar
-			* se o CPF informado está no formato correto,
+			* esse mÃ©todo vai verificar
+			* se o CPF informado estÃ¡ no formato correto,
 			* se estiver correto retorna 1
 			* se estiver errado retorna 0
 			*/
 			$qtd= (int) 1;
-			$result= (int) 1;	//começamos supondo que está no formato correto
+			$result= (int) 1;	//comeÃ§amos supondo que estÃ¡ no formato correto
 			$caracter= "";
 		
 		   /*
 			* para que o Cpf esteja no fomrato correto
-			* deve ter 14 elementos, os números, os pontos
-			* e o dígito
+			* deve ter 14 elementos, os nÃºmeros, os pontos
+			* e o dÃ­gito
 			*/
-			if(tamanhoDeUmaString($str) == TAMANHO_CPF)		//se o tamanho da string que representa o cpf está correto
+			if(tamanhoDeUmaString($str) == TAMANHO_CPF)		//se o tamanho da string que representa o cpf estÃ¡ correto
 			{
 				foreach(getCpf() as $caracter)
 				{
 					if((($qtd == 4) || ($qtd == 8)) && ($caracter != '.'))
 					{
 					   /*
-						* se estamos em uma das duas posições acima(4 ou 8
-						* e não temos o caracter ponto '.', então
+						* se estamos em uma das duas posiÃ§Ãµes acima(4 ou 8
+						* e nÃ£o temos o caracter ponto '.', entÃ£o
 						* temos um erro
 						*/
 							
-						//se a cada três dígitos não temos o ponto, está no formato errado
+						//se a cada trÃªs dÃ­gitos nÃ£o temos o ponto, estÃ¡ no formato errado
 						$result= (int) 0;
 						break;
 					}
@@ -81,12 +81,12 @@
 						if(($qtd == 12) && ($caracter != '-'))
 						{
 						   /*
-							* se estamos na posição acima (12)
-							* e não temos o caracter dígito '-'
-							* então temos um erro
+							* se estamos na posiÃ§Ã£o acima (12)
+							* e nÃ£o temos o caracter dÃ­gito '-'
+							* entÃ£o temos um erro
 							*/
 								
-							//se não tem o dígito na posição 12, está no formato errado
+							//se nÃ£o tem o dÃ­gito na posiÃ§Ã£o 12, estÃ¡ no formato errado
 							$result= (int) 0;
 							break;
 						}
@@ -94,12 +94,12 @@
 							if(verificaSeCaracterEhNumero($caracter) == 0)		//(verificaStringDeNumeros($caracter) == 0)
 							{
 							   /*
-								* se estamos em qualquer outra posição
-								* que deve ter um número, se não temos,
-								* então temos um erro
+								* se estamos em qualquer outra posiÃ§Ã£o
+								* que deve ter um nÃºmero, se nÃ£o temos,
+								* entÃ£o temos um erro
 								*/
 									
-								//se em qualquer outra posição não temos um número, está no formato errado
+								//se em qualquer outra posiÃ§Ã£o nÃ£o temos um nÃºmero, estÃ¡ no formato errado
 								$result= (int) 0;
 								break;
 							}
@@ -110,10 +110,10 @@
 			}
 				
 		   /*
-			* se não entrou em nenhum caso
-			* acima, casos de erro, então
-			* está no formato correto e
-			* a variável $result continua
+			* se nÃ£o entrou em nenhum caso
+			* acima, casos de erro, entÃ£o
+			* estÃ¡ no formato correto e
+			* a variÃ¡vel $result continua
 			* com o valor 1
 			*/
 			return $result;
@@ -122,8 +122,8 @@
 		private function VerificaFormatoRg()
 		{
 		   /*
-			* esse método vai verificar
-			* se o CPF informado está no
+			* esse mÃ©todo vai verificar
+			* se o CPF informado estÃ¡ no
 			* formato correto, se
 			* estiver correto retorna 1
 			* se estiver errado retorna 0
@@ -136,19 +136,19 @@
 		   /*
 			* para que o RG esteja no formato correto
 			* deve ser composto por uma quantidade limitada
-			* de números e a cada 3 números deve-se ter um
+			* de nÃºmeros e a cada 3 nÃºmeros deve-se ter um
 			* caracter ponto '.'
 			*/
 		
 			foreach(getRg() as $caracter)
 			{
 			   /*
-				* a cada múltiplo de quatro temos que ter o ponto
-				* separando três números na string: 000.000.000
-				* se estamos em uma posição múltipla de 4 e não
-				* temos o caracter '.' então temos um erro
+				* a cada mÃºltiplo de quatro temos que ter o ponto
+				* separando trÃªs nÃºmeros na string: 000.000.000
+				* se estamos em uma posiÃ§Ã£o mÃºltipla de 4 e nÃ£o
+				* temos o caracter '.' entÃ£o temos um erro
 				*/
-				if(($qtd % 4) == 0) //se estamos em um múltiplo de 4
+				if(($qtd % 4) == 0) //se estamos em um mÃºltiplo de 4
 				{
 					if($caracter != '.')	//verificamos se temos o caracter correto
 					{
@@ -156,19 +156,19 @@
 						break;
 					}
 				}
-				else	//se não estamos em um múltiplo de 4
+				else	//se nÃ£o estamos em um mÃºltiplo de 4
 					if(verificaStringDeNumeros($caracter) == 0)
 					{
 					   /*
-						* se não estamos em uma posição mútipla
-						* de 4, então temos que ter um número
-						* senão temos um erro
+						* se nÃ£o estamos em uma posiÃ§Ã£o mÃºtipla
+						* de 4, entÃ£o temos que ter um nÃºmero
+						* senÃ£o temos um erro
 						*/
 						$result= (int) 0;
 						break;
 					}
 			}
-			//se não entramos na condição de erro está no formato correto
+			//se nÃ£o entramos na condiÃ§Ã£o de erro estÃ¡ no formato correto
 			return $result;
 		}
 		
@@ -177,7 +177,7 @@
 		{
 			return $this->_cpf;
 		}
-		public function setCpf(string $cpf)
+		public function setCpf($cpf)
 		{
 			$this->_cpf= $cpf;
 		}
@@ -186,7 +186,7 @@
 		{
 			$this->_rg= $rg;
 		}
-		public function setRg(string  $rg)
+		public function setRg($rg)
 		{
 			$this->_rg= $rg;
 		}
@@ -195,7 +195,7 @@
 		{
 			return $this->_dataExpRg;
 		}
-		public function setDataExpRg(string $dataExpRg)
+		public function setDataExpRg($dataExpRg)
 		{
 			$this->_dataExpRg= $dataExpRg;
 		}
@@ -204,7 +204,7 @@
 		{
 			return $this->_orgaoExpRg;
 		}
-		public function setOrgaoExpRg(string $orgaoExpRg)
+		public function setOrgaoExpRg($orgaoExpRg)
 		{
 			$this->_orgaoExpRg= $orgaoExpRg;
 		}
