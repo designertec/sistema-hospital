@@ -3,19 +3,19 @@
 	{
 		/*
 		 *Essa classe tem como objetivo
-		 *reduzir a escrita de código
-		 *relativa a procedimentos que serão
-		 *executados várias vezes relacionados
+		 *reduzir a escrita de cÃ³digo
+		 *relativa a procedimentos que serÃ£o
+		 *executados vÃ¡rias vezes relacionados
 		 *ao banco de dados, procedimento que 
-		 *que com certeza vamos repetir, são
+		 *que com certeza vamos repetir, sÃ£o
 		 *eles: conectar com o bd, selecionar o
 		 *bd, realizar uma consulta, fechar o bd.
 		 *Com isso resolvi deixar esse script 
-		 *dentro de um método dessa classe, que 
-		 *ao meu ver não deve ter atributos, logo
+		 *dentro de um mÃ©todo dessa classe, que 
+		 *ao meu ver nÃ£o deve ter atributos, logo
 		 *se queremos conectar com o bd para fazermos 
 		 *uma consulta instanciamos um objeto dessa 
-		 *classe e chamamos a função com esse script.
+		 *classe e chamamos a funÃ§Ã£o com esse script.
 		 */
 		
 		//atributos
@@ -26,13 +26,13 @@
 			
 		}
 		
-		//métodos
+		//mÃ©todos
 		public function ConectaConsultaFechaBd($query)
 		{
 			/*
-			 *essas variáveis receberão
-			 *os retornos das funções MYsql
-			 *serão variáveis auxiliares
+			 *essas variÃ¡veis receberÃ£o
+			 *os retornos das funÃ§Ãµes MYsql
+			 *serÃ£o variÃ¡veis auxiliares
 			 */
 			$statusConexao= (int) 0;
 			$statusSelecaoBd= (int) 0;
@@ -45,19 +45,19 @@
 			try
 			{
 				//retorna o link com o banco em caso de sucesso ou false em caso de erro
-				//os argumentos server, user e password estão definido na biblioteca
+				//os argumentos server, user e password estÃ£o definido na biblioteca
 				$statusConexao= mysql_connect(server,user,password);
 			}
-			catch(Exception $e)	//instanciamos um objeto da classe padrão Exception
+			catch(Exception $e)	//instanciamos um objeto da classe padrÃ£o Exception
 			{
 				/*
 				 *no caso de erro com o banco de dados
 				 *exibimos uma menssagem e encerramos
-				 *a aplicação
+				 *a aplicaÃ§Ã£o
 				 */
 				echo "ERRO AO CONECTAR COM O BANCO DE DADOS:".$e->getMessage();	//exibimos menssagem
 				unset($e);	//destruimos o objeto
-				die();		//encerramos a aplicação
+				die();		//encerramos a aplicaÃ§Ã£o
 			}
 			
 			
@@ -65,76 +65,76 @@
 			try
 			{
 				//retorna true em caso de sucesso ou false em caso de erro
-				//o argumento BaseDados está definido na biblioteca
+				//o argumento BaseDados estÃ¡ definido na biblioteca
 				$statusSelecaoBd= mysql_select_db(BaseDados);
 			}
-			catch(Exception $e)	//instanciamos um objeto da classe padrão Exception
+			catch(Exception $e)	//instanciamos um objeto da classe padrÃ£o Exception
 			{
 				/*
 				 *no caso de erro com o banco de dados
 				 *exibimos uma menssagem e encerramos
-				 *a aplicação
+				 *a aplicaÃ§Ã£o
 				 */
 				echo "ERRO AO SELECIONAR A BASE DE DADOS: ".$e->getMessage();	//exibimos menssagem
 				unset($e); 	//destruimos o objeto
-				die();		//encerramos a aplicação
+				die();		//encerramos a aplicaÃ§Ã£o
 			}
 			
 			//realizamos uma consulta
 			try
 			{	
 				/*
-				 * $query é o parâmetro do método, 
+				 * $query Ã© o parÃ¢metro do mÃ©todo, 
 				 * como se tratam muitas vezes de 
 				 * consultas SQL pretendo definir
 				 * todas elas na biblioteca, atribuir
 				 * a consulta que desejo a uma 
-				 * variável chamada $query e passá-la
-				 * sempre como parâmetro
+				 * variÃ¡vel chamada $query e passÃ¡-la
+				 * sempre como parÃ¢metro
 				 */
 				$statusQuery= mysql_query($query);
 			}
-			catch (Exception $e)	//instanciamos um objeto da classe padrão Exception
+			catch (Exception $e)	//instanciamos um objeto da classe padrÃ£o Exception
 			{
 				/*
 				 *no caso de erro com o banco de dados
 				 *exibimos uma menssagem e encerramos
-				 *a aplicação
+				 *a aplicaÃ§Ã£o
 				 */
 				echo "ERRO AO CONSULTAR O BANCO DE DADOS: ".$e->getMessage();	//exibimos menssagem
 				unset($e); 	//destruimos o objeto
-				die();		//encerramos a aplicação
+				die();		//encerramos a aplicaÃ§Ã£o
 			}
 			
 			/*
-			 *neste ponto já possuimos o resultado da consulta, 
-			 *como as funções mysql_fecth_array, mysql_num_rows,
-			 * são independentes do banco de dados está com a
-			 * conexão aberta então podemos fechar a conexão com o BD
+			 *neste ponto jÃ¡ possuimos o resultado da consulta, 
+			 *como as funÃ§Ãµes mysql_fecth_array, mysql_num_rows,
+			 * sÃ£o independentes do banco de dados estÃ¡ com a
+			 * conexÃ£o aberta entÃ£o podemos fechar a conexÃ£o com o BD
 			 */
 			
-			//fechamos a conexão com o banco de dados
+			//fechamos a conexÃ£o com o banco de dados
 			try
 			{
 				$statusClose= mysql_close();
 			}
-			catch(Exception $e)	//instanciamos um objeto da classe padrão Exception
+			catch(Exception $e)	//instanciamos um objeto da classe padrÃ£o Exception
 			{
 				/*
 				 *no caso de erro com o banco de dados
 				 *exibimos uma menssagem e encerramos
-				 *a aplicação
+				 *a aplicaÃ§Ã£o
 				 */
-				echo "ERRO AO FECHAR A CONEXÃO COM O BANCO DE DADOS: ".$e->getMessage();	//exibimos menssagem
+				echo "ERRO AO FECHAR A CONEXÃƒO COM O BANCO DE DADOS: ".$e->getMessage();	//exibimos menssagem
 				unset($e); 	//destruimos o objeto
-				die();		//encerramos a aplicação
+				die();		//encerramos a aplicaÃ§Ã£o
 			}
 			
 			
 			/*
 			 *retornamos o resultado da consulta 
 			 *que ficou armazenado em $statusQuery, 
-			 *para agora ser usado an função 
+			 *para agora ser usado an funÃ§Ã£o 
 			 *mysql_fetch_array 
 			 */
 			return $statusQuery;
