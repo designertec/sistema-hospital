@@ -2,13 +2,13 @@
 	class Usuarios
 	{
 		//atributos
-		protected $_codUsuario;
-		protected $_login,$_senha;
+		private $_codUsuario;
+		private $_login,$_senha;
 		/*
 		 *esses atributos devem ser
 		 *trataados como strings 
 		 */
-		protected $_codigoTipoUsuario;
+		private $_codigoTipoUsuario;
 		/*
 		 *esse atributo deve ser
 		 *tratado como inteiro 
@@ -16,19 +16,19 @@
 		
 		
 		//construtores
-		protected function Usuarios()
+		private function Usuarios()
 		{
 			
 		}
-		protected function Usuarios($_login,$_senha,$_codigoTipoUsuario)
-		{
-			$this->_login= $_login;
-			$this->_senha= $_senha;
-			$this->_codigoTipoUsuario= $_codigoTipoUsuario;
-		}
+		//private function Usuarios($_login,$_senha,$_codigoTipoUsuario)
+		//{
+			//$this->_login= $_login;
+			//$this->_senha= $_senha;
+			//$this->_codigoTipoUsuario= $_codigoTipoUsuario;
+		//}
 		
 		
-		//métodos
+		//mÃ©todos
 		//??deveriamos criar um metodo para criptografar e descriptografar senhas??
 		
 		
@@ -37,7 +37,7 @@
 		{
 			return $this->_login;
 		}
-		public function setLogin(string $_login)
+		public function setLogin($_login)
 		{
 			$this->_login= $_login;
 		}
@@ -46,7 +46,7 @@
 		{
 			return $this->_senha;
 		}
-		public function setSenha(string $_senha)
+		public function setSenha($_senha)
 		{
 			$this->_senha= $_senha;
 		}
@@ -55,7 +55,7 @@
 		{
 			return $this->_codigoTipoUsuario;
 		}
-		public function setCodigoTipoUsuario(string $_codigoTipoUsuario)
+		public function setCodigoTipoUsuario($_codigoTipoUsuario)
 		{
 			$this->_codigoTipoUsuario= $_codigoTipoUsuario;
 		}
