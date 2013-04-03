@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>
-		E_Commerce - Tela de Cadastro de Novo Usuario
+		ProntOnline - Tela de Cadastro de Novo PACIENTE
 	</title>
 </head>
 <body>
@@ -16,7 +16,13 @@
 			<br>
 			CPF:* <input type="text" name="cpfInformado" maxlength="14" value="">
 			<br>
-			EndereÁo:
+			Filia√ß√£o:
+			<br>
+			Nome do Pai:* <input type="text" name="nomePaiInformado" maxlength="20" value="">
+			<br>
+			Nome da Mae:* <input type="text" name="nomeMaeInformado" maxlength="20" value="">
+			<br>
+			Endere√ßo:
 			<br>
 			Rua:* <input type="text" name="ruaInformada" maxlength="30" value="">     Numero:* <input type="text" name="numeroInformado" maxlength="5" value=""> 
 			<br>
@@ -24,26 +30,33 @@
 			<br>
 			Bairro:* <input type="text" name="bairroInformado" maxlength="15" value="">     Cidade:*  <input type="text" name="CidadeInformada" maxlength="20" value="">  
 			<br>
-			Pais:* <input type="text" name="paisInformado" maxlength="20" value="">
+			UF:* <input type="text" name="ufInformado" maxlength="2" value="">     Pais:* <input type="text" name="paisInformado" maxlength="20" value="">
 			<hr>
 			Acesso:
 			<br>
-			Senha:* <input type="text" name="senhaEscolhida" maxlength="15" value="">
+			<b>SEU LOGIN NO SISTEMA SERA SEU CPF</b>
 			<br>
-			ConfirmaÁao:* <input type="text" name="confirmacaoSenhaEscolhida" maxlength="15" value="">
+			Senha:* <input type="password" name="senhaEscolhida" maxlength="15" value="">
+			<br>
+			Confirma√ßao:* <input type="password" name="confirmacaoSenhaEscolhida" maxlength="15" value="">
 			<hr>
-			<p align="center"><b>Login: </b><input type="submit" value="CADASTRAR"></p>
+			<p align="center"><input type="submit" value="CADASTRAR"></p>
 			<br>
 		</form>
 	</p>
 </body>
 </html>
 <?php
-	//todos os dados pedidos no fomrul·rio s„o obrigatÛrios
+	require_once 'SisHospBiblioteca.php';
+	require_once 'Usuarios.php';
+	require_once 'BD.php';
+	require_once 'Endereco.php';
+
+	//todos os dados pedidos no fomrul√°rio s√£o obrigat√≥rios
 
 	/*
-	 *atribuimos as vari·veis os dados 
-	 *informados pelo usu·rio no formul·rio 
+	 *atribuimos as vari√°veis os dados 
+	 *informados pelo usu√°rio no formul√°rio 
 	 *HTML 
 	 */
 	$nomeInformado= $_POST["nomeInformado"];
@@ -59,71 +72,74 @@
 	$senhaEscolhida= $_POST["senhaEscolhida"];
 	$confirmacaoSenhaEscolhida= $_POST["confirmacaoSenhaEscolhida"];
 	$cidadeInformada= $_POST["CidadeInformada"];
+	$ufInformada= $_POST["ufInformada"];
+	$nomePaiInformado= $_POST["nomePaiInformado"];
+	$nomeMaeInformado= $_POST["nomeMaeInformado"];
 	
 	
 	/*
 	 *esta query vai ser utilizada
 	 *para uma consulta que vai ajudar
 	 *a verificar se o cpf informado 
-	 *j· existe no banco de dados 
+	 *j√° existe no banco de dados 
 	 */
 	$query1= "";
 	
 	/*
-	 *esta vari·vel vai receber o 
+	 *esta vari√°vel vai receber o 
 	 *resultado da consulta feita
 	 *no banco de dados pela $query1 
 	 */
 	$statusQuery1= (int) 0;
 	
 	/*
-	 *essa vari·vel ser· 
+	 *essa vari√°vel ser√° 
 	 *usada para verificar
 	 *se alguma linha foi afetada 
 	 *na consulta de cpf, ajudando 
 	 *a verificar se o cpf informado
-	 *j· est· cadastrado
+	 *j√° est√° cadastrado
 	 */
 	$numRows1= (int) 0;
 	
 	/*
-	 *esta query ser· utilizada
-	 *para consultar o cÛdigo
-	 *do ˙ltimo endereÁo cadastrado
+	 *esta query ser√° utilizada
+	 *para consultar o c√≥digo
+	 *do √∫ltimo endere√ßo cadastrado
 	 *para somarmos  + 1 e cadastrarmos
-	 *o novo endereÁo que foi informado
+	 *o novo endere√ßo que foi informado
 	 */
-	$codEndClie= (int) 0;	
+	$codEndPac= (int) 0;	
 	
 	/*
-	 *esta query ser· utilizada
-	 *para consultar o cÛdigo
-	 *do ˙ltimo usu·rio cadastrado
+	 *esta query ser√° utilizada
+	 *para consultar o c√≥digo
+	 *do √∫ltimo usu√°rio cadastrado
 	 *para somarmos  + 1 e cadastrarmos
-	 *o novo usu·rio que foi informado
+	 *o novo usu√°rio que foi informado
 	 */
-	$codUsuarioClie= (int) 0;
+	$codUsuarioPac= (int) 0;
 	
 	/*
-	 *esta vari·vel vai receber
-	 *o retorno da funÁ„o crypt()
+	 *esta vari√°vel vai receber
+	 *o retorno da fun√ß√£o crypt()
 	 *que vai criptografar a senha
-	 *escolhida pelo usu·rio antes 
+	 *escolhida pelo usu√°rio antes 
 	 *de ser guardada no banco de dados
 	 */
-	$senhaCrypt= (int) 0;
+	//$senhaCrypt= (int) 0;
 	
 	
 	/*
-	 *esta query ser· utilizada 
+	 *esta query ser√° utilizada 
 	 *para inserir os dados de 
-	 *endereÁo do cliente 
+	 *endere√ßo do cliente 
 	 */
 	$query4= "";
 	
 	
 	/*
-	 *esta vari·vel vai receber
+	 *esta vari√°vel vai receber
 	*o resultado da consulta
 	*feita pela $query4
 	*/
@@ -131,15 +147,15 @@
 	
 	
    /*
-	*esta query ser· utilizada
+	*esta query ser√° utilizada
 	*para inserir os dados de
-	*usu·rio do cliente
+	*usu√°rio do cliente
 	*/
 	$query5= "";
 	
 	
    /*
-	*esta vari·vel vai receber
+	*esta vari√°vel vai receber
 	*o resultado da consulta
 	*feita pela $query5
 	*/
@@ -147,7 +163,7 @@
 	
 	
 	/*
-	 *esta query ser· utilizada
+	 *esta query ser√° utilizada
 	*para inserir os dados pessoais
 	* do cliente
 	*/
@@ -155,7 +171,7 @@
 	
 	
 	/*
-	 *esta vari·vel vai receber
+	 *esta vari√°vel vai receber
 	*o resultado da consulta
 	*feita pela $query6
 	*/
@@ -164,25 +180,25 @@
 	
 	/*
 	 *instanciamos um objeto
-	 *da classe BD para comunicaÁ„o
+	 *da classe BD para comunica√ß√£o
 	 *com o banco 
 	 */
 	$bd1= new BD();
 	
 	
 	//validar se todos os campos foram preenchidos
-	if(($nomeInformado == "") || ($telefoneInformado == "") || ($emailInformado == "") || ($cpfInformado == "") || ($ruaInformada == "") || ($numeroInformado == "") || ($complementoInformado == "") || ($cepInformado == "") || ($bairroInformado == "") || ($paisInformado == "") || ($senhaEscolhida == "") || ($confirmacaoSenhaEscolhida == ""))
+	if(($nomeInformado == "") || ($telefoneInformado == "") || ($emailInformado == "") || ($cpfInformado == "") || ($ruaInformada == "") || ($numeroInformado == "") || ($complementoInformado == "") || ($cepInformado == "") || ($bairroInformado == "") || ($paisInformado == "") || ($senhaEscolhida == "") || ($confirmacaoSenhaEscolhida == "") || ($cidadeInformada == "") || ($ufInformada == "") || ($nomePaiInformado == "") || ($nomeMaeInformado == ""))
 	{
 		unset($bd1);
 		header("Location: InformeDadosObrigatorios.html");
 	}
-	else	//se todos os dados est„o deividamente preenchidos
+	else	//se todos os dados est√£o deividamente preenchidos
 		{
 			/*
 			 *como os dados foram todos preenchidos
-			 *no formul·rios HTML ent„o agora
+			 *no formul√°rios HTML ent√£o agora
 			 *vamos validar o cadastro, consultando 
-			 *no banco se j· existe um cpf cadastrado
+			 *no banco se j√° existe um cpf cadastrado
 			 *igual ao que foi informado
 			 */
 			
@@ -190,40 +206,40 @@
 			/*
 			 *consultamos no banco e atribuimos 
 			 *o resultado da consulta a 
-			 *vari·vel $statusQuery1 
+			 *vari√°vel $statusQuery1 
 			 */
 			//construimos a $query1
-			$query1= ConsultaCpfInformado." ".$cpfInformado;
+			$query1= ConsultaCpfInformadoPaciente." ".$cpfInformado;
 			
 			$statusQuery1= $bd1->ConectaConsultaFechaBd($query1);
 			
 			/*
 			 *se alguma linha foi afetada 
-			 *na consulta ent„o o cpf ja existe
-			 *para verificar isso usamos a funÁ„o
+			 *na consulta ent√£o o cpf ja existe
+			 *para verificar isso usamos a fun√ß√£o
 			 *mysql_num_rows() 
 			 */
 			$numRows1= mysql_num_rows($statusQuery1);
 			
-			//validaÁ„o SE O CPF J¡ EST¡ CADASTRADO
+			//valida√ß√£o SE O CPF J√Å EST√Å CADASTRADO
 			if(($numRows1 != 0) || ($statusQuery1["CPF"] == $cpfInformado))
 			{
 				unset($bd1);
 				header("Location: CpfJaCadastrado.html");
 			}
 			else 
-				if($senhaEscolhida != $confirmacaoSenhaEscolhida)		//se a confirmaÁ„o da senha falhou
+				if($senhaEscolhida != $confirmacaoSenhaEscolhida)		//se a confirma√ß√£o da senha falhou
 				{
 					unset($bd1);
 					header("Location: SenhaNaoConfere.html");
 				}
-				else	//se o cpf ainda n„o existe no sistema e se a senha informada confere continuamos com o cadastro
+				else	//se o cpf ainda n√£o existe no sistema e se a senha informada confere continuamos com o cadastro
 					{
 						/*
-						 *se o cpf ainda n„o existe 
+						 *se o cpf ainda n√£o existe 
 						 *no sistema continuamos 
 						 *com o cadastro, logo
-						 *passamos as informaÁıes 
+						 *passamos as informa√ß√µes 
 						 *para o banco de dados 
 						 */
 						
@@ -237,7 +253,7 @@
 						
 					   /*
 						*instaciamos um objeto da classe
-						*endereÁo, para nos auxiliar no
+						*endere√ßo, para nos auxiliar no
 						*cadastro de um novo usuario no
 						*banco de dados
 						*/
@@ -246,18 +262,18 @@
 						
 					   /*
 						*instaciamos um objeto da classe
-						*cliente, para nos auxiliar no
+						*paciente, para nos auxiliar no
 						*cadastro de um novo usuario no
 						*banco de dados
 						*/
-						$cliente1= new Cliente();
+						$paciente1= new Paciente();
 						
 						
-						//AS QUERYS 3 E 4 S√O FIXAS, N√O ENVOLVEM VARI¡VEIS POR ISSO N√O PRECISAMOS CONSTRUÕ-LAS
+						
 						
 					    
 							
-						//colocamos as informaÁıes do endereÁo do cliente no objeto $end1
+						//colocamos as informa√ß√µes do endere√ßo do paciente no objeto $end1
 						$end1->setBairro($bairroInformado);
 						$end1->setCep($cepInformado);
 						$end1->setCidade($cidadeInformada);
@@ -265,35 +281,35 @@
 						$end1->setNomeRua($ruaInformada);
 						$end1->setNumero($numeroInformado);
 						$end1->setPais($paisInformado);
+						$end1->getUf($ufInformada);
 							
 							
 						//criptografamos a senha escolhida
-						$senhaCrypt= crypt($senhaEscolhida);
+						//$senhaCrypt= crypt($senhaEscolhida);
 							
-						//colocamos as informaÁıes de usu·rio de sistema do cliente no objeto $usuario1
-						$usuario1->setCodUsuario($statusQuery3);
-						$usuario1->setCodigoTipoUsuario(CODIGO_TIPO_USUARIO_CLIENTE);
+						//colocamos as informa√ß√µes de usu√°rio de sistema do paciente no objeto $usuario1
+						$usuario1->setCodigoTipoUsuario(CODIGO_TIPO_USUARIO_PACIENTE);
 						$usuario1->setLogin($cpfInformado);
-						$usuario1->setSenha($senhaCrypt);
+						$usuario1->setSenha($senhaEscolhida);
 
 						
 						/*
-						 *passamos as informaÁıes 
+						 *passamos as informa√ß√µes 
 						 *para o banco de dados 
 						 *usando o INSERT  
 						 */
 						
 						/*
-						 *inserimos os dados de endereÁo 
+						 *inserimos os dados de endere√ßo 
 						 */
 						//construimos a $query4
-						$query4= InsereEnderecoCliente.$end1->getCodEnd().", ".$end1->getNomeRua().", ".$end1->getNumero().", ".$end1->getComplemento().", ".$end1->getCep().", ".$end1->getBairro().", ".$end1->getCidade().", ".$end1->getPais().")";
-						//inserimos atravÈs do objeto $bd1
+						$query4= InsereEnderecoPaciente.$end1->getNomeRua().", ".$end1->getNumero().", ".$end1->getComplemento().", ".$end1->getCep().", ".$end1->getBairro().", ".$end1->getCidade().", ".$end1->getPais().", ".$end1->getUf().")";
+						//inserimos atrav√©s do objeto $bd1
 						$statusQuery4= $bd1->ConectaConsultaFechaBd($query4);
-						//pegamos o codigo do endereÁo, cod_end, para usar o mesmo valor em clientes
-						$codEndClie= mysql_insert_id();
+						//pegamos o codigo do endere√ßo, cod_end, para usar o mesmo valor em pacientes
+						$codEndPac= mysql_insert_id();
 						
-						if($statusQuery4 = 0)
+						if($statusQuery4 == 0)
 						{
 							header("Location: ErroAoCadastrar.html");
 						}
@@ -303,45 +319,54 @@
 						 *inserimos os dados de usuario 
 						 */
 						//construimos a $query5
-						$query5= InsereDadosUsuarioClie.$usuario1->getCodUsuario().", ".$usuario1->getLogin().", ".$usuario1->getSenha().", ".$usuario1->getCodigoTipoUsuario().")";
-						//inserimos atravÈs do objeto $bd1
+						$query5= InsereDadosUsuario.$usuario1->getLogin().", ".$usuario1->getSenha().", ".$usuario1->getCodigoTipoUsuario().")";
+						//inserimos atrav√©s do objeto $bd1
 						$statusQuery5= $bd1->ConectaConsultaFechaBd($query5);
 						//pegamos o codigo do usuario, para usar o mesmo valor em clientes
-						$codUsuarioClie= mysql_insert_id();
+						$codUsuarioPac= mysql_insert_id();
 						
-						if($statusQuery5 = 0)
+						if($statusQuery5 == 0)
 						{
 							header("Location: ErroAoCadastrar.html");
 						}
 						
 						
-						//colocamos as informaÁıes pessoais do cliente no objeto $cliente1
-						$cliente1->setCpf($cpfInformado);
-						$cliente1->setNome($nomeInformado);
-						$cliente1->setEmail($emailInformado);
-						$cliente1->setTelefone($telefoneInformado);
-						$cliente1->setCodUsuarioClie($codUsuarioClie);
-						$cliente1->setCodEnd($codEndClie);
+						//colocamos as informa√ß√µes pessoais do cliente no objeto
+						$paciente1->setCpf($cpfInformado);
+						$paciente1->setNomePaciente($nomeInformado);
+						$paciente1->setEmailPaciente($emailInformado);
+						$paciente1->setTelefone($telefoneInformado);
+						$paciente1->setCodUsuario($codUsuarioPac);
+						$paciente1->setNomePai($nomePaiInformado);
+						$paciente1->setNomeMae($nomeMaeInformado);
+						$end1->setCodEnd($codEndPac);
 						
 						
 						/*
 						 *inserimos dados pessoais do cliente 
 						 */
 						//construimos a $query6
-						$query6= InsereDadosPessoaisClie.$cliente1->getCpf().", ".$cliente1->getNome().", ".$cliente1->getTelefone().", ".$cliente1->getEmail().", ".$cliente1->getCodEnd().", ".$cliente1->getCodUsuarioClie().")";
-						//inserimos atravÈs do objeto $bd1
+						$query6= InsereDadosPessoaisPaciente.$paciente1->getCpf().", ".$paciente1->getNome().", ".$paciente1->getTelefone().", ".$paciente1->getEmail().", ".$end1->getCodEnd().", ".$paciente1->getCodUsuario().", ".$paciente1->getNomePai().", ".$paciente1->getNomeMae().")";
+						//inserimos atrav√©s do objeto $bd1
 						$statusQuery6= $bd1->ConectaConsultaFechaBd($query6);
 						
-						if($statusQuery6 = 0)
+						if($statusQuery6 == 0)
 						{
 							header("Location: ErroAoCadastrar.html");
 						}
+						
+						
+						
+						
+					
+						
+						
 						
 						//DESTRUIMOS OS OBJETOS
 						unset($bd1);
 						unset($end1);
 						unset($usuario1);
-						unset($cliente1);
+						unset($paciente1);
 						
 						header("Location: CadastroRealizadoComSucesso.html");
 						
