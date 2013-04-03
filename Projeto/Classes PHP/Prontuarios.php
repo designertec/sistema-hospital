@@ -18,16 +18,16 @@
 		{
 				
 		}
-		public function Prontuarios($_codigoProntuario,$_codigoConsultaPaciente,$_idPaciente,$_codigoResultadoConsulta)
-		{
-			$this->_codigoProntuario= $_codigoProntuario;
-			$this->_codigoConsultaPaciente= $_codigoConsultaPaciente;
-			$this->_idPaciente= $_idPaciente;
-			$this->_codigoResultadoConsulta= $_codigoResultadoConsulta;
-		}
+		//public function Prontuarios($_codigoProntuario,$_codigoConsultaPaciente,$_idPaciente,$_codigoResultadoConsulta)
+		//{
+			//$this->_codigoProntuario= $_codigoProntuario;
+			//$this->_codigoConsultaPaciente= $_codigoConsultaPaciente;
+			//$this->_idPaciente= $_idPaciente;
+			//$this->_codigoResultadoConsulta= $_codigoResultadoConsulta;
+		//}
 		
 		
-		//métodos
+		//mÃ©todos
 		
 		
 		
@@ -36,7 +36,7 @@
 		{
 			return $this->_codigoProntuario;
 		}
-		public function setCodigoProntuario(int $_codigoProntuario)
+		public function setCodigoProntuario($_codigoProntuario)
 		{
 			$this->_codigoProntuario= $_codigoProntuario;
 		}
@@ -45,7 +45,7 @@
 		{
 			return $this->_codigoConsultaPaciente;
 		}
-		public function setCodigoConsultaPaciente(int $_codigoConsultaPaciente)
+		public function setCodigoConsultaPaciente($_codigoConsultaPaciente)
 		{
 			$this->_codigoConsultaPaciente= $_codigoConsultaPaciente;
 		}
@@ -54,7 +54,7 @@
 		{
 			return $this->_idPaciente;
 		}
-		public function setIdPaciente(int $_idPaciente)
+		public function setIdPaciente($_idPaciente)
 		{
 			$this->_idPaciente= $_idPaciente;
 		}
@@ -63,7 +63,7 @@
 		{
 			return $this->_codigoResultadoConsulta;
 		}
-		public function setCodigoResultadoConsulta(int $_codigoResultadoConsulta)
+		public function setCodigoResultadoConsulta($_codigoResultadoConsulta)
 		{
 			$this->_codigoResultadoConsulta= $_codigoResultadoConsulta;
 		}
