@@ -2,39 +2,31 @@
 	class Paciente extends Usuarios
 	{
 		//atributos
+		private $_telefone,$_cpf;
+		
 		private $_nomePaciente,$_nomePai,$_nomeMae,$_emailPaciente;
 		/*
 		 *esses atributos devem 
 		 *ser tratados como strings 
 		 */
-		private $_documentosPaciente;
-		/*
-		 *deverá ser um objeto da
-		 *classe Documentos 
-		 */
-		
-		private $_enderecoPaciente;
-		/*
-		 *deverá ser um objeto da
-		 *classe Endereco 
-		 */
+	
 		
 		//construtores
 		public function Paciente()
 		{
 			
 		}
-		public function Paciente(string $nomePaciente,string $nomePai,string $nomeMae,string $emailPaciente,string $rg,string $orgaoExpRg,string  $dataExpRg,string $cpf,string $nomeRua,string $bairro,int $numero,string $complemento,string  $cep,string $cidade,string $uf,string $pais)
-		{
-			$this->_nomePaciente= $nomePaciente;
-			$this->_nomePai= $nomePai;
-			$this->_nomeMae= $nomeMae;
-			$this->_emailPaciente= $emailPaciente;
-			$this->_documentosPaciente= new Documentos((string) $rg,(string) $orgaoExpRg,(string) $dataExpRg,(string) $cpf);		//instaciamos o objeto documento
-			$this->_enderecoPaciente= new Endereco((string) $nomeRua,(string) $bairro,(int) $numero,(string) $complemento,(string) $cep,(string) $cidade,(string) $uf,(string) $pais);		//instsanciamos o objeto endereco
-		}
+		//public function Paciente($telefone,$nomePaciente,$nomePai,$nomeMae,$emailPaciente,$cpf)
+		//{
+			//$this->_cpf= $cpf;
+			//$this->_nomePaciente= $nomePaciente;
+			//$this->_nomePai= $nomePai;
+			//$this->_nomeMae= $nomeMae;
+			//$this->_emailPaciente= $emailPaciente;
+			//$this->_telefone= $telefone;
+		//}
 		
-		//métodos
+		//mÃ©todos
 		
 		
 		//gets e sets
@@ -42,7 +34,7 @@
 		{
 			return $this->_nomePaciente;
 		}
-		public function setNomePaciente(string $_nomePaciente)
+		public function setNomePaciente($_nomePaciente)
 		{
 			$this->_nomePaciente= $_nomePaciente;
 		}
@@ -51,7 +43,7 @@
 		{
 			return $this->_nomePai;
 		}
-		public function setNomePai(string $_nomePai)
+		public function setNomePai($_nomePai)
 		{
 			$this->_nomePai= $_nomePai;
 		}
@@ -60,7 +52,7 @@
 		{
 			return $this->_nomeMae;
 		}
-		public function setNomeMae(string $_nomeMae)
+		public function setNomeMae($_nomeMae)
 		{
 			$this->_nomeMae= $_nomeMae;
 		}
@@ -69,9 +61,27 @@
 		{
 			return $this->_emailPaciente;
 		}
-		public function setEmailPaciente(string $_emailPaciente)
+		public function setEmailPaciente($_emailPaciente)
 		{
 			$this->_emailPaciente= $_emailPaciente;
+		}
+		
+		public function getTelefone()
+		{
+			return $this->_telefone;
+		}
+		public function setTelefone($telefone)
+		{
+			$this->_telefone= $telefone;
+		}
+		
+		public function getCpf()
+		{
+			return $this->_cpf;
+		}
+		public function setCpf($cpf)
+		{
+			$this->_cpf= $cpf;
 		}
 		
 	}
