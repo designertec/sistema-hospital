@@ -16,23 +16,23 @@
 		*/
 		
 		//construtores
-		public function Endereco($nomeRua,$bairro,$numero,$complemento,$cep,$cidade,$uf,$pais)
-		{
-			$this->_nomeRua= $nomeRua;
-			$this->_bairro= $bairro;
-			$this->_numero= $numero;
-			$this->_complemento= $complemento;
-			$this->_cep= $cep;
-			$this->_cidade= $cidade;
-			$this->_uf= $uf;
-			$this->_pais= $pais;
-		}
+		//public function Endereco($nomeRua,$bairro,$numero,$complemento,$cep,$cidade,$uf,$pais)
+		//{
+			//$this->_nomeRua= $nomeRua;
+			//$this->_bairro= $bairro;
+			//$this->_numero= $numero;
+			//$this->_complemento= $complemento;
+			//$this->_cep= $cep;
+			//$this->_cidade= $cidade;
+			//$this->_uf= $uf;
+			//$this->_pais= $pais;
+		//}
 		public function Endereco()
 		{
 			
 		}
 		
-		//métodos
+		//mÃ©todos
 		
 		
 		//gets e sets
