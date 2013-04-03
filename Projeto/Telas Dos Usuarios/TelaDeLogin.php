@@ -2,10 +2,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>
-		E_Commerce - Login
+		ProntOnline - Login
 	</title>
 </head>
 	<body>
+		<p align="center">ProntOnline</p>
 		<hr>
 		<br>
 		<br>
@@ -14,24 +15,26 @@
 			<form action="TelaDeLogin.php" method="Post">
 				<p align="center"><b>Login: </b><input type="text" name="LoginTextBox"></p><br>
 				<p align="center"><b>Senha: </b><input type="text" name="SenhaTextBox"></p><br>
-				<p align="center" font="7"><a href="CadastroDeUsuario.php">Primeiro acesso</a></p><br>
-				<p align="center"><b>Login: </b><input type="submit" value="ENTRAR"></p><br>
+				<p align="center"><a href="TelaDeCadastroNovoUsuario.php">Primeiro acesso</a></p><br>
+				<p align="center"><input type="submit" value="ENTRAR"></p><br>
 			</form>
 		</p>
 	</body>
 </html>
 <?php
-	require_once 'Biblioteca_E_Commerce.php';
-
+	require_once 'SisHospBiblioteca.php';
+	require_once 'Usuarios.php';
+	
+	
 	/*
-	 *na tela de login recebemos do usuário seu login e sua senha, realizamos uma consulta no 
-	 *banco de dados para descobrir a qual tipo de usuário se trata e dependendo do tipo direcionamos
-	 *para uma página específica. 
+	 *na tela de login recebemos do usuÃ¡rio seu login e sua senha, realizamos uma consulta no 
+	 *banco de dados para descobrir a qual tipo de usuÃ¡rio se trata e dependendo do tipo direcionamos
+	 *para uma pÃ¡gina especÃ­fica. 
 	 */
 
 	
-	//variáveis
-	//pegamos o login que foi informado no formulário HTML
+	//variÃ¡veis
+	//pegamos o login que foi informado no formulÃ¡rio HTML
 	$loginInformado= $_POST["LoginTextBox"];
 	$senhaInformada= $_POST["SenhaTextBox"];
 	
@@ -46,49 +49,49 @@
 	
 	/*
 	 *instanciamos um objeto da classe BD
-	 *ele executará o script de comunicação
+	 *ele executarÃ¡ o script de comunicaÃ§Ã£o
 	 *com o banco
 	 */
 	$bd1= new BD();
 	
 	
 	/*
-	 *$query é a consulta que será passada
-	 *como parâmetro para o script que 
-	 *é executado pelo objeto da classe BD 
+	 *$query Ã© a consulta que serÃ¡ passada
+	 *como parÃ¢metro para o script que 
+	 *Ã© executado pelo objeto da classe BD 
 	 */
 	$query= "";
 	$statusQuery= "";
 	
 	/*
-	 *essas variáveis receberão
-	 *os retornos das funções MYsql
+	 *essas variÃ¡veis receberÃ£o
+	 *os retornos das funÃ§Ãµes MYsql
 	 */
 	$statusFetchArray= (int) 0;
 	$numLinhasResultado= (int) 0;
 
 	
 	/*
-	 *aqui realizamos o script de comunicação com o banco,
+	 *aqui realizamos o script de comunicaÃ§Ã£o com o banco,
 	 *lembrando que esse script realiza a consulta que 
-	 *passamos como parâmetro com $query e devolve
-	 *o retorno da função mysql_query() 
+	 *passamos como parÃ¢metro com $query e devolve
+	 *o retorno da funÃ§Ã£o mysql_query() 
 	 */
 	//construimos a $query
 	$query= TelaDeLoginQueryUsuarios." ".$loginInformado;
-	//inserimos atravé do objeto $bd1
+	//inserimos atravÃ© do objeto $bd1
 	$statusQuery= $bd1->ConectaConsultaFechaBd($query);
 	
-	//verificamos o número de linhas do resultado da consulta
+	//verificamos o nÃºmero de linhas do resultado da consulta
 	$numLinhasResultado= mysql_num_rows($statusQuery);
 	
-	//fazemos a verificação
-	if($numLinhasResultado = 0)		//o usuário não está cadastrado
+	//fazemos a verificaÃ§Ã£o
+	if($numLinhasResultado = 0)		//o usuÃ¡rio nÃ£o estÃ¡ cadastrado
 	{
 		header("Location: UsuarioNaoCadastrado.html");
 	}
 	else 
-		if($numLinhasResultado = 1)		//existe um usuário cadastrado com esse login, situação correta
+		if($numLinhasResultado = 1)		//existe um usuÃ¡rio cadastrado com esse login, situaÃ§Ã£o correta
 		{
 			//se a consulta retornou alguma coisa passamos o resultado para o array
 			
@@ -96,14 +99,14 @@
 			
 			/*
 			 *temos um array onde as chaves (indices)
-			 *são os nomes dos campos da tabela do banco
-			 *nesse caso a tabela usuário 
+			 *sÃ£o os nomes dos campos da tabela do banco
+			 *nesse caso a tabela usuÃ¡rio 
 			 */
 
 			/*
-			 *jogamos na variável $senhaCadastradaNoBd 
-			 *a senha que está no banco de dados
-			 *correpondente ao login passado pelo usuário 
+			 *jogamos na variÃ¡vel $senhaCadastradaNoBd 
+			 *a senha que estÃ¡ no banco de dados
+			 *correpondente ao login passado pelo usuÃ¡rio 
 			 */
 			
 			$usuario1= new Usuarios($statusFetchArray["LOGIN_USUARIO"], $statusFetchArray["SENHA_USUARIO"], $statusFetchArray["COD_TIPO_USUARIO"]);
@@ -113,18 +116,18 @@
 			//verificamos a compatibilidade da senha informada com a que foi cadastrada no banco de dados
 			if($senhaInformada = $usuario1->getSenha())
 			{
-				//fazemos o redirecionamento para as páginas corretas
-				if($usuario1->getCodigoTipoUsuario() = CODIGO_TIPO_USUARIO_GERENTE)	//administrador
+				//fazemos o redirecionamento para as pÃ¡ginas corretas
+				if($usuario1->getCodigoTipoUsuario() == CODIGO_TIPO_USUARIO_GERENTE)	//administrador
 				{
 					header("Location: TelaDoAdministrador.php");
 				}
 				else
-					if($usuario1->getCodigoTipoUsuario() = CODIGO_TIPO_USUARIO_MEDICO)		//medico
+					if($usuario1->getCodigoTipoUsuario() == CODIGO_TIPO_USUARIO_MEDICO)		//medico
 					{
 						header("Location: TelaDoMedico.php");
 					}
 					else
-						if($usuario1->getCodigoTipoUsuario() = CODIGO_TIPO_USUARIO_PACIENTE)		//paciente
+						if($usuario1->getCodigoTipoUsuario() == CODIGO_TIPO_USUARIO_PACIENTE)		//paciente
 						{
 							header("Location: TelaDoPaciente.php");
 						}
