@@ -24,7 +24,7 @@
 <?php
 	require_once 'SisHospBiblioteca.php';
 	require_once 'Usuarios.php';
-	
+	require_once 'BD.php';
 	
 	/*
 	 *na tela de login recebemos do usuário seu login e sua senha, realizamos uma consulta no 
