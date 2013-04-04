@@ -8,8 +8,12 @@
 	define('CODIGO_TIPO_USUARIO_PACIENTE',"3");
 
 	define('TAMANHO_CPF', 14);
+  
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////
+  define('ConsultaCodigoProntuario',"SELECT COD_PRONTUARIO,COD_CONSULTA_PAC,COD_RESULTADO_CONSULTAS,ID_PACIENTE FROM PRONTUARIOS WHERE COD_PRONTUARIO =");
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 	
-	define('ConsultaCpfInformadoMedico',"SELECT MEDICOS.CPF FROM MEDICOS WHERE MEDICOS.CPF_MEDICO =");
+   define('ConsultaCpfInformadoMedico',"SELECT MEDICOS.CPF FROM MEDICOS WHERE MEDICOS.CPF_MEDICO =");
 	
 	define('ConsultaCpfInformadoPaciente',"SELECT PACIENTES.CPF FROM PACIENTES WHERE PACIENTES.CPF_PACIENTE =");
 	
