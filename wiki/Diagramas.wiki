@@ -1,13 +1,13 @@
-<h2><b>Diagrama de caso de uso</b><h2>
+<h1><b>Diagrama de caso de uso</b><h1>
 
 <br>
-https://sistema-hospital.googlecode.com/issues/attachment?aid=60000000&name=caseuse.png&token=fJx505CLn2I174bZt5vJzy7l7mA%3A1365144121028&inline=1&thumb=1
+https://sistema-hospital.googlecode.com/issues/attachment?aid=60000000&name=caseuse.png&token=fT6lGJJSVCDlE6lJvprg2SIylCo%3A1365146077184&inline=1
 
 
 <br>
 <br>
-
-<h2><b>EER MODEL</b><h2>
-
 <br>
-https://sistema-hospital.googlecode.com/issues/attachment?aid=70000000&name=BD.png&token=4stztOrMzz77uZrkl8_ImE4hNas%3A1365145962489&inline=1&thumb=1
+<h1><b>EER MODEL</b><h1>
+<br>
+<br>
+https://sistema-hospital.googlecode.com/issues/attachment?aid=70000000&name=BD.png&token=4stztOrMzz77uZrkl8_ImE4hNas%3A1365145962489&inline=1
