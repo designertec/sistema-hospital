@@ -8,37 +8,37 @@
 	<p align="center"><i><b>Informe seus dados cadastrais, os campos marcados com * sao obrigatorios.</b></i></p>
 	<p align="center">
 		<form action="TelaDeCadastroNovoUsuario.php" method="POST">
-			Nome:* <input type="text" name="nomeInformado" maxlength="40" value="">
+			Nome:* <input type="text" name="nomeInformado" maxlength="40">
 			<br>
-			Telefone:* <input type="text" name="telefoneInformado" maxlength="13" value="">
+			Telefone:* <input type="text" name="telefoneInformado" maxlength="13">
 			<br>
-			Email:* <input type="text" name="emailInformado" maxlength="70" value="">
+			Email:* <input type="text" name="emailInformado" maxlength="70">
 			<br>
-			CPF:* <input type="text" name="cpfInformado" maxlength="14" value="">
+			CPF:* <input type="text" name="cpfInformado" maxlength="14">
 			<br>
 			Filiação:
 			<br>
-			Nome do Pai:* <input type="text" name="nomePaiInformado" maxlength="20" value="">
+			Nome do Pai:* <input type="text" name="nomePaiInformado" maxlength="20">
 			<br>
-			Nome da Mae:* <input type="text" name="nomeMaeInformado" maxlength="20" value="">
+			Nome da Mae:* <input type="text" name="nomeMaeInformado" maxlength="20">
 			<br>
 			Endereço:
 			<br>
-			Rua:* <input type="text" name="ruaInformada" maxlength="30" value="">     Numero:* <input type="text" name="numeroInformado" maxlength="5" value=""> 
+			Rua:* <input type="text" name="ruaInformada" maxlength="30">     Numero:* <input type="text" name="numeroInformado" maxlength="5"> 
 			<br>
-			Complemento:* <input type="text" name="complementoInformado" maxlength="20" value="">     CEP:* <input type="text" name="cepInformado" maxlength="10" value="">
+			Complemento:* <input type="text" name="complementoInformado" maxlength="20">     CEP:* <input type="text" name="cepInformado" maxlength="10">
 			<br>
-			Bairro:* <input type="text" name="bairroInformado" maxlength="15" value="">     Cidade:*  <input type="text" name="CidadeInformada" maxlength="20" value="">  
+			Bairro:* <input type="text" name="bairroInformado" maxlength="15">     Cidade:*  <input type="text" name="CidadeInformada" maxlength="20">  
 			<br>
-			UF:* <input type="text" name="ufInformado" maxlength="2" value="">     Pais:* <input type="text" name="paisInformado" maxlength="20" value="">
+			UF:* <input type="text" name="ufInformado" maxlength="2">     Pais:* <input type="text" name="paisInformado" maxlength="20">
 			<hr>
 			Acesso:
 			<br>
 			<b>SEU LOGIN NO SISTEMA SERA SEU CPF</b>
 			<br>
-			Senha:* <input type="password" name="senhaEscolhida" maxlength="15" value="">
+			Senha:* <input type="password" name="senhaEscolhida" maxlength="15">
 			<br>
-			Confirmaçao:* <input type="password" name="confirmacaoSenhaEscolhida" maxlength="15" value="">
+			Confirmaçao:* <input type="password" name="confirmacaoSenhaEscolhida" maxlength="15">
 			<hr>
 			<p align="center"><input type="submit" value="CADASTRAR"></p>
 			<br>
