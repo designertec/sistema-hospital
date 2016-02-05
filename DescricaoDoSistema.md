@@ -1,0 +1,33 @@
+<p align='center'><b>Objetivo</b></p>
+
+Criar um sistema informatizado de saúde em um hospital público. No sistema, o paciente poderá marcar consultas, terá um prontuário único e receberá exames pela internet. O médico poderá alterar o prontuário, solicitar exames e medicamentos para o paciente.  O administrador efetuará o cadastro dos funcionários. O intuito é:<br>
+•	Diminuir as filas no hospital;<br>
+•	 Dar mais dinamicidade à marcação de consultas e o recebimento de exames;<br>
+•	Diminuir a burocracia e o excesso de papel;<br>
+•	Através do histórico de consultas e doenças, dar a oportunidade do médico dar um diagnóstico mais rápido e prevenir doenças graves.<br><br>
+
+<p align='center'><b>Atores do Sistema</b></p><br><br>
+<b>Paciente</b><br>
+Ele será o maior beneficiado do sistema. Ele poderá marcar consultas e receber exames a partir do cadastro feito. O sistema irá gerar um cartão provisório enquanto o cartão oficial não chega (a nossa idéia é usar os correios para distribuir os cartões gratuitamente). Abaixo estão algumas funções que o paciente pode fazer:<br>
+•	Marcar consultas<br>
+•	Receber exames<br>
+•	Fornecer o histórico de doenças da família<br>
+•	Ver o histórico de consultas e exames<br>
+•	Manual básico caso tenha alguma dúvida<br><br>
+<b>Médico</b><br>
+É também nosso objetivo deixar a vida do médico mais simples. A partir do cadastro, cada médico terá sua página, onde ele poderá observar sua agenda e seus pacientes. Ele também poderá solicitar exames ao paciente e enviar seus resultados quando eles estiverem prontos. Algumas das funções do médico são:<br>
+•	Solicitar exames<br>
+•	Alterar o prontuário do paciente.<br><br>
+<b>Diretor/Administrador</b><br>
+O diretor terá as funções de cadastrar os funcionários no sistema, agendar o horário dos médicos e gerar relatórios.<br>
+•	Agendar o horário de consultas<br>
+•	Cadastrar funcionários no sistema<br>
+•	Gerar relatórios<br><br>
+
+<b>Laboratório</b><br>
+O laboratório terá a única função de enviar os exames quando eles estiverem prontos. Para isso, assim como o diretor, deverá ter o registro dos pacientes e médicos cadastrados no sistema. Através da identificação do médico e/ou do paciente, o sistema enviará o exame tanto para o médico quanto para o paciente.<br><br>
+
+<b>Atendente</b><br>
+O atendente confirmará os dados do paciente no dia da consulta e o encaminhará para a sala onde o médico está.<br><br>
+Outros funcionários<br>
+Outros funcionários do sistema como enfermeiros e técnicos de enfermagem também terão um cadastro. Porém, eles apenas poderão visualizar o prontuário do paciente e alterar poucas opções, como o peso e confirmações de alta do paciente.<br><br>
